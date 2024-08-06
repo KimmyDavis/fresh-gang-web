@@ -18,7 +18,7 @@ body {
   width: 100%;
   overflow: scroll;
   &.home {
-    background-image: linear-gradient(#000e, #000d), url("../images/fik.png");
+    background-image: linear-gradient(#0001, #0001), url("#url to the pic");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -44,7 +44,7 @@ body {
   left: 0;
   background-color: #0005;
   padding-top: 20px;
-  height: min(100px, 20vh);
+  height: min(50px, 20vh);
 }
 .home-header .logo {
   pointer-events: visible;
@@ -75,7 +75,7 @@ a.buy-ticket {
   justify-content: center;
   align-items: center;
   border-right: 1px solid white;
-  padding-right: 15px;
+  padding-right: 20px;
   gap: 0;
   & > img {
     height: 70%;
@@ -84,19 +84,43 @@ a.buy-ticket {
   & span {
     font-size: 0.3em;
   }
-}
-a.news {
-  font-size: 0.9em;
-  text-transform: uppercase;
+  &:hover span {
+    color: white;
+  }
 }
 
-.home-main,
-.news-main {
+.page-links {
+  display: flex;
+  flex-direction: row;
+  font-size: 0.5em;
+  & .page-link {
+    padding-right: 5px;
+    margin-left: 5px;
+    height: max-content;
+    border-right: 1px solid white;
+    text-transform: uppercase;
+    &.lit {
+      color: white;
+      border-bottom: 2px solid white;
+    }
+    &:hover {
+      color: white;
+    }
+    &:last-child {
+      border-right: none;
+    }
+  }
+}
+
+header + main {
   position: relative;
-  top: 100px;
+  top: 50px;
+  padding-bottom: 20px;
 }
 
-.home-footer {
+footer {
+  display: flex;
+  flex-direction: row;
   position: fixed;
   left: 0;
   bottom: 0;
@@ -111,15 +135,16 @@ a.news {
     width: max-content;
   }
   & .social-icons {
-    height: 100%;
+    height: 70%;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
     width: 25%;
     margin-inline: auto 12px;
-    & > span {
+    & > a {
       height: 100%;
+      aspect-ratio: 1;
       background-color: green;
       padding: 2px;
       border-radius: 50%;
@@ -129,6 +154,7 @@ a.news {
       }
       & > img {
         height: 100%;
+        width: 100%;
       }
     }
   }
@@ -140,7 +166,7 @@ a.news {
 }
 #container {
   position: relative;
-  margin: 30px 10px 0 10px;
+  margin: 0 10px;
   width: 100%;
   height: 50%;
   top: 0;
@@ -158,7 +184,52 @@ a.news {
   font-family: "Raleway", sans-serif;
   font-size: 30px;
 
-  text-align: left;
+  text-align: center;
 
   user-select: none;
+}
+svg#filters {
+  height: 0;
+}
+
+.latest-song {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: min(95vw, 300px);
+  margin-inline: auto;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  & img {
+    width: min(100vw, 110px);
+  }
+  & audio {
+    height: 20px;
+    width: 80%;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .latest-song img {
+    width: 95vw;
+  }
+  .latest-song audio {
+    height: 30px;
+    width: 95vw;
+  }
+  footer {
+    font-size: 1em;
+    flex-direction: column;
+    & > div {
+      display: block;
+    }
+  }
+  footer .social-icons {
+    width: 45%;
+    gap: 10px;
+  }
 }
